@@ -144,7 +144,7 @@ open class KeychainSwift {
   open func get(_ key: String,
     withAccess access: KeychainSwiftAccessOptions? = nil
   ) -> String? {
-    if let data = getData(key) {
+    if let data = getData(key, withAccess: access) {
       
       if let currentString = String(data: data, encoding: .utf8) {
         return currentString
