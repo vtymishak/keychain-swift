@@ -7,6 +7,8 @@ These options are used to determine when a keychain item should be readable. The
 */
 public enum KeychainSwiftAccessOptions {
   
+  case accessibleAlways
+  
   /**
   
   The data in the keychain item can be accessed only while the device is unlocked by the user.
@@ -60,6 +62,9 @@ public enum KeychainSwiftAccessOptions {
   
   var value: String {
     switch self {
+    case .accessibleAlways:
+      return toString(kSecAttrAccessibleAlways)
+        
     case .accessibleWhenUnlocked:
       return toString(kSecAttrAccessibleWhenUnlocked)
       
